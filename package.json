@@ -1,0 +1,27 @@
+{
+  "name": "server-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
+    "@babel/plugin-transform-react-jsx": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "cross-env": "^6.0.3",
+    "parcel-bundler": "^1.12.4",
+    "rimraf": "^3.0.0",
+    "sass": "^1.25.0"
+  },
+  "dependencies": {
+    "@endpass/connect": "^0.31.1-beta",
+    "preact": "^10.2.1",
+    "preact-router": "^3.2.0"
+  },
+  "scripts": {
+    "pre-build": "rimraf ./dist && rimraf ./cache",
+    "dev": "cross-env-shell IS_DEV=true NODE_ENV=development yarn pre-build && parcel src/index.html -p 34 --no-hmr"
+  }
+}
