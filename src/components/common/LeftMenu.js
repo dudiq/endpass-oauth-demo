@@ -39,7 +39,7 @@ export default class LeftMenu extends Component {
           <RequestButton url={`${ENDPOINT_API}/documents/${docId}/front/file`} scopes={['documents:image:read']}>
             Front Document
           </RequestButton>
-          <RequestButton url={`${ENDPOINT_API}/documents/${docId}/back/file`} scopes={[]}>
+          <RequestButton url={`${ENDPOINT_API}/documents/${docId}/back/file`} scopes={['documents:image:read']}>
             Back Document
           </RequestButton>
         </div>

@@ -19,20 +19,30 @@ export default class Resulter {
 
   async makeRequest({ url, scopes}) {
     this.setState({
+      error: null,
       isLoading: true,
       result: null,
     });
 
-    const { data } = await this.connect.request({
-      url,
-      method: 'GET',
-      scopes,
-    });
+    try {
+      const { data } = await this.connect.request({
+        url,
+        method: 'GET',
+        scopes,
+      });
+      this.setState({
+        result: data,
+      });
+    } catch (e) {
+      this.setState({
+        error: e,
+      });
+    } finally {
+      this.setState({
+        isLoading: false,
+      });
+    }
 
-    this.setState({
-      isLoading: false,
-      result: data,
-    });
   }
 
   getState() {
