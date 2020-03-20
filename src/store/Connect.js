@@ -1,6 +1,7 @@
 import EndpassCompose from '@endpass/connect/compose';
 import EndpassOauth from '@endpass/connect/oauth';
 import EndpassDocument from '@endpass/connect/document';
+import ConnectLoginButton from '@endpass/connect/loginButton';
 
 export default class Connect {
   constructor() {
@@ -21,11 +22,16 @@ export default class Connect {
       plugins:[
 //        EndpassDocument,
         EndpassOauth,
+        ConnectLoginButton,
       ]
     });
   }
 
   request(...args) {
     return this.instance.request(...args);
+  }
+
+  createLoginButton(options) {
+    return this.instance.createLoginButton(options);
   }
 }

@@ -9,11 +9,11 @@ export default class Content extends Component {
   };
 
   componentWillMount() {
-    this.context.resulter.onState(this.onForce)
+    this.context.resulter.state.onState(this.onForce)
   }
 
   componentWillUnmount() {
-    this.context.resulter.offState(this.onForce)
+    this.context.resulter.state.offState(this.onForce)
   }
 
   render() {
@@ -22,7 +22,7 @@ export default class Content extends Component {
     console.log('state', state);
     const isHaveResult = !!result;
     return (
-      <div className={this.props.className}>
+      <div className={`${this.props.className} content`}>
         <pre>
           {isLoading && <div>loading...</div>}
           {isHaveResult && JSON.stringify(result || {}, null, '  ')}

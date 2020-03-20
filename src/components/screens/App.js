@@ -1,32 +1,16 @@
 import { h, Component } from 'preact';
 import Layout from './Layout';
-import Resulter from '@/controls/Resulter';
-import Connect from '@/controls/Connect';
+import store from '@/store';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    try {
-      this.createConnect();
-    } catch (e) {
-      console.log(e.message);
-      console.error(e);
-    }
-  }
-
-  createConnect() {
-    try {
-      this.connect = new Connect();
-    } catch (e) {
-      console.error(e);
-    }
-
-    this.resulter = new Resulter(this.connect);
+    this.store = store();
   }
 
   getChildContext() {
     return {
-      resulter: this.resulter,
+      ...this.store,
     }
   }
 

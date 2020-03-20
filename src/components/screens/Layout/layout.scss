@@ -1,7 +1,17 @@
 .layout {
   display: flex;
 
-  .left-menu {
+  .layout-content {
+    width: auto;
+    padding: 6px;
+  }
+
+  .layout-left-menu {
     width: 200px;
+  }
+
+  .layout-right-block {
+    width: 200px;
+    margin-left: auto;
   }
 }
